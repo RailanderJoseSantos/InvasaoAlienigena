@@ -5,23 +5,19 @@ def checkEvents(ship):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-            #QUANDO PRESSIONAR SETA DIREITA
+            #QUANDO PRESSIONAR SETA DIREITA OU ESQUERDA , MOVE A NAVE
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                #MOVE PARA DIREITA
                 ship.movingRight = True
-                #QUANDO SOLTAR
+
+            elif event.key == pygame.K_LEFT:
+                ship.movingLeft = True
+            #QUANDO SOLTAR SETA DIREITA OU ESQUERDA , PARA A NAVE
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
                 ship.movingRight = False
-            #QUANDO PRESSIONAR SETA ESQUERDA
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                #MOVE PARA DIREITA
-                ship.movingLeft = True
-                #QUANDO SOLTAR
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT:
+
+            elif event.key == pygame.K_LEFT:
                 ship.movingLeft = False
 
 

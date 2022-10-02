@@ -22,7 +22,7 @@ class Ship():
         """ATUALIZA POSICAO ESPACONAVE DE ACORDO COM FLAG DE MOVIMENTO (move a nave enquanto tecla tiver pressionada"""
         if self.movingRight:
             self.rect.centerx+=1
-        elif self.movingLeft:
+        if self.movingLeft:
             self.rect.centerx-=1
     def blitme(self):
         """Desenha a espaconave em sua posicao atual"""
