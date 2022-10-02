@@ -15,6 +15,15 @@ class Ship():
         #inicia cada nova espaconave em sua posicao atual
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
+
+        self.movingRight = False
+        self.movingLeft = False
+    def update(self):
+        """ATUALIZA POSICAO ESPACONAVE DE ACORDO COM FLAG DE MOVIMENTO (move a nave enquanto tecla tiver pressionada"""
+        if self.movingRight:
+            self.rect.centerx+=1
+        elif self.movingLeft:
+            self.rect.centerx-=1
     def blitme(self):
         """Desenha a espaconave em sua posicao atual"""
         self.screen.blit(self.image, self.rect)

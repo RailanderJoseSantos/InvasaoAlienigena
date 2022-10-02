@@ -1,7 +1,7 @@
-import sys
 import pygame as pg
 from settings import Settings
 from ship import Ship
+import gameFunctions as gf
 def runGame():
     "Inicializa o jogo e cria um objeto para tela"
     pg.init()
@@ -13,13 +13,7 @@ def runGame():
 
     #laço principal do jogo
     while True:
-        #escuta evento de teclado e mouse
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                sys.exit()
-        #redesenha a tela a cada passada pelo laço
-        screen.fill(aiSettings.bgColor)
-        nave.blitme()
-        # deixa tela mais recente visivel
-        pg.display.flip()
+        gf.checkEvents(nave)
+        nave.update()
+        gf.upgradeScreen(aiSettings, screen, nave)
 runGame()
