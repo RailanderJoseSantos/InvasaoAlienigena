@@ -9,7 +9,7 @@ def runGame():
     #setando display para tela
     screen = pg.display.set_mode((aiSettings.screenWidth,aiSettings.escreenHeidth))
     pg.display.set_caption("Invasão Alien")
-    nave = Ship(screen)
+    nave = Ship(screen, aiSettings)
 
     #laço principal do jogo
     while True:

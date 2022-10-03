@@ -1,10 +1,9 @@
 import pygame
-#nave
 class Ship():
-    def __init__(self, screen):
+    def __init__(self, screen, aiSettings):
         """ Inicializa a espaçonave e define sua posicao inicial"""
         self.screen = screen
-
+        self.aiSettings = aiSettings
         #carrega imagem da nave e obtem seu rect
         self.image = pygame.image.load('image/ship.bmp')
         # a imagem é inserida num retangulo, assim o pygame sabera omde
@@ -21,9 +20,9 @@ class Ship():
     def update(self):
         """ATUALIZA POSICAO ESPACONAVE DE ACORDO COM FLAG DE MOVIMENTO (move a nave enquanto tecla tiver pressionada"""
         if self.movingRight:
-            self.rect.centerx+=1
+            self.rect.centerx+=self.aiSettings.speed
         if self.movingLeft:
-            self.rect.centerx-=1
+            self.rect.centerx-=self.aiSettings.speed
     def blitme(self):
         """Desenha a espaconave em sua posicao atual"""
         self.screen.blit(self.image, self.rect)
