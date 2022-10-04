@@ -19,5 +19,6 @@ def runGame():
     while True:
         gf.checkEvents(aiSettings, screen, nave, bullets)
         nave.update()
-        gf.upgradeScreen(aiSettings, screen, nave, bullets)
+        bullets.update()
+        gf.updateScreen(aiSettings, screen, nave, bullets)
 runGame()
