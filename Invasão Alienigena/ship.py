@@ -15,14 +15,17 @@ class Ship():
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
+
         self.movingRight = False
         self.movingLeft = False
     def update(self):
         """ATUALIZA POSICAO ESPACONAVE DE ACORDO COM FLAG DE MOVIMENTO (move a nave enquanto tecla tiver pressionada"""
-        if self.movingRight:
+        #verifica se movel a direita ou esquerda e se chegou no limite
+        if self.movingRight and self.rect.right < self.screen_rect.right:
             self.rect.centerx+=self.aiSettings.speed
-        if self.movingLeft:
+        if self.movingLeft and self.rect.left > 0:
             self.rect.centerx-=self.aiSettings.speed
+        #atualiza o objeto rec de acordo com o centro
     def blitme(self):
         """Desenha a espaconave em sua posicao atual"""
         self.screen.blit(self.image, self.rect)
