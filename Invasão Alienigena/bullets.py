@@ -15,6 +15,15 @@ class Bullet(Sprite):
         self.rect.top = ship.rect.top
 
         # Armazena a posicao do projetil
-        self.y = self.rect.y
+        self.y = float(self.rect.y)
         self.color = aiSettings.bulletColor
         self.speedFactor = aiSettings.bulletSpeedFactor
+    def update(self):
+        """Move o projetil para cima da tela"""
+        self.y-= self.speedFactor
+        #atualiza a posicao do rect
+        self.rect.y = self.y
+
+    def drawBullet(self):
+        """Desenha o projetil"""
+        pygame.draw.rect(self.screen, self.color, self.rect)
