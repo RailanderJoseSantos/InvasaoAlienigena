@@ -21,4 +21,9 @@ def runGame():
         nave.update()
         bullets.update()
         gf.updateScreen(aiSettings, screen, nave, bullets)
+        # tirando da memora do pc os projeteis que ja foram disparados
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+     #   print(len(bullets))
 runGame()

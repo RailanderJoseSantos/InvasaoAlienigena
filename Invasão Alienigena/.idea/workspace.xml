@@ -4,7 +4,6 @@
     <list default="true" id="5ab04073-1a2e-45d3-85ab-97e62ee1330f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvasaoAlien.py" beforeDir="false" afterPath="$PROJECT_DIR$/InvasaoAlien.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameFunctions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664927016031</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Nave disparando projeteis">
+      <created>1664927993997</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1664927993997</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,6 +270,7 @@
     <MESSAGE value="Usando metodo pra mudar velocidade da nave (permitir mudar velocidade no GUI)" />
     <MESSAGE value="crieando o projetil da nave, definindo posições e configurações basicas" />
     <MESSAGE value="Refatorando codigo: separando as função eventos de teclas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refatorando codigo: separando as função eventos de teclas" />
+    <MESSAGE value="Nave disparando projeteis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nave disparando projeteis" />
   </component>
 </project>
