@@ -8,11 +8,8 @@ def checkKeyDowmEvents(event, aiSettings, screen, ship, bullets):
     elif event.key == pygame.K_LEFT:
         ship.movingLeft = True
     elif event.key == pygame.K_SPACE:
-        #verifica se ja tem o limite de projeteis na tela
-        if len(bullets) < aiSettings.bulletsAllowed:
-            # cria um novo projetil e o adiciona ao grupo de projeteis
-            newBullet = Bullet(aiSettings, screen, ship)
-            bullets.add(newBullet)
+        fireBullet(aiSettings,screen,ship,bullets)
+
 def checkKeyUpEvents(event, ship):
     """Responde ao soltar teclas"""
     if event.key == pygame.K_RIGHT:
@@ -41,3 +38,18 @@ def updateScreen(aiSettings, screen, ship, bullets):
     ship.blitme()
     # deixa tela mais recente visivel
     pygame.display.flip()
+
+def updateBullets(bullets):
+    """Atualiza a posicao dos projeteis e se livra dos antigos"""
+    bullets.update()
+    # tirando da memoria do pc os projeteis que ja foram disparados
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
+
+def fireBullet(aiSettings,screen,ship,bullets):
+    # verifica se ja tem o limite de projeteis na tela
+    if len(bullets) < aiSettings.bulletsAllowed:
+        # cria um novo projetil e o adiciona ao grupo de projeteis
+        newBullet = Bullet(aiSettings, screen, ship)
+        bullets.add(newBullet)
