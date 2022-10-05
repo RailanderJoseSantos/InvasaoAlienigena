@@ -8,9 +8,11 @@ def checkKeyDowmEvents(event, aiSettings, screen, ship, bullets):
     elif event.key == pygame.K_LEFT:
         ship.movingLeft = True
     elif event.key == pygame.K_SPACE:
-        # cria um novo projetil e o adiciona ao grupo de projeteis
-        newBullet = Bullet(aiSettings, screen, ship)
-        bullets.add(newBullet)
+        #verifica se ja tem o limite de projeteis na tela
+        if len(bullets) < aiSettings.bulletsAllowed:
+            # cria um novo projetil e o adiciona ao grupo de projeteis
+            newBullet = Bullet(aiSettings, screen, ship)
+            bullets.add(newBullet)
 def checkKeyUpEvents(event, ship):
     """Responde ao soltar teclas"""
     if event.key == pygame.K_RIGHT:
