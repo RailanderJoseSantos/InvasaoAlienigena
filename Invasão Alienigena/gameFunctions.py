@@ -59,8 +59,9 @@ def fireBullet(aiSettings,screen,ship,bullets):
 
 def getNumberRows(aiSettings, shipHeight, alienHeight):
     """Determinar o nmr de linhas com aliens que cabem na tela"""
-    availableSpaceY = (aiSettings.screenHeight - (3 * alienHeight) - shipHeight)
+    availableSpaceY = (aiSettings.escreenHeidth - (3 * alienHeight) - shipHeight)
     numberRow = int(availableSpaceY / (2 *alienHeight))
+    return numberRow
 
 def getNumberAliensX(aiSettings, alienWidth):
     """Determina nmr de aliens que cabem em 1 linha"""
@@ -68,20 +69,24 @@ def getNumberAliensX(aiSettings, alienWidth):
     numberAliensX = int(availablbeSpaceX / (2 * alienWidth))
     return numberAliensX
 
-def createAlien(aiSettings, screen, aliens, alienNumber):
+def createAlien(aiSettings, screen, aliens, alienNumber, rowNumber):
     """Cria 1 alien e o posiciona na linha"""
     alien = Alien(aiSettings, screen)
     alienWidth = alien.rect.width
     alien.x = alienWidth + 2 * alienWidth * alienNumber
     alien.rect.x = alien.x
+    alien.rect.y = alien.rect.height + 2 * alien.rect.height * rowNumber
     aliens.add(alien)
 
-def createFeet(aiSettings, screen, aliens):
+def createFeet(aiSettings, screen, ship, aliens):
     """cria frota completa de aliens"""
     #cria um alien e calcula numero de aliens em uma linha
     #o espacamento entre oas aliens é igual a largura de outro
     alien= Alien(aiSettings, screen )
     numberAliensX = getNumberAliensX(aiSettings, alien.rect.width)
-    #Cria primeira linha de aliens
-    for alienNumber in range(numberAliensX):
-        createAlien(aiSettings, screen, aliens, alienNumber)
+    numberRows = getNumberRows(aiSettings, ship.rect.height, alien.rect.height)
+
+    for rowNumber in range(numberRows):
+        #Cria linha de aliens
+        for alienNumber in range(numberAliensX):
+            createAlien(aiSettings, screen, aliens, alienNumber, rowNumber)

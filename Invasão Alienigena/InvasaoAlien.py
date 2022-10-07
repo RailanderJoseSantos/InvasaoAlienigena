@@ -18,7 +18,7 @@ def runGame():
     #criando um grupode de alienigena
     aliens = Group()
 
-    gf.createFeet(aiSettings, screen, aliens)
+    gf.createFeet(aiSettings, screen, nave, aliens)
     #laço principal do jogo
     while True:
         gf.checkEvents(aiSettings, screen, nave, bullets)
