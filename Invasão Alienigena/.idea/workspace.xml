@@ -274,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665182619698</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refatorando">
+      <created>1665184310364</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1665184310364</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,6 +310,7 @@
     <MESSAGE value="Limitando o numero de munições disparadas ao mesmo tempo" />
     <MESSAGE value="Refatoramento de codigo" />
     <MESSAGE value="Inserindo mais aliens" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserindo mais aliens" />
+    <MESSAGE value="refatorando" />
+    <option name="LAST_COMMIT_MESSAGE" value="refatorando" />
   </component>
 </project>

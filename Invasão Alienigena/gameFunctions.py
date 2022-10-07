@@ -57,6 +57,10 @@ def fireBullet(aiSettings,screen,ship,bullets):
         newBullet = Bullet(aiSettings, screen, ship)
         bullets.add(newBullet)
 
+def getNumberRows(aiSettings, shipHeight, alienHeight):
+    """Determinar o nmr de linhas com aliens que cabem na tela"""
+    availableSpaceY = (aiSettings.screenHeight - (3 * alienHeight) - shipHeight)
+    numberRow = int(availableSpaceY / (2 *alienHeight))
 
 def getNumberAliensX(aiSettings, alienWidth):
     """Determina nmr de aliens que cabem em 1 linha"""
