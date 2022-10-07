@@ -1,6 +1,7 @@
 import sys
 import pygame
 from bullets import Bullet
+from alien   import Alien
 def checkKeyDowmEvents(event, aiSettings, screen, ship, bullets):
     """Responde a pressionamento das teclas"""
     if event.key == pygame.K_RIGHT:
@@ -29,13 +30,15 @@ def checkEvents(aiSettings,screen, ship, bullets):
             checkKeyUpEvents(event, ship)
 
 
-def updateScreen(aiSettings, screen, ship, bullets):
+def updateScreen(aiSettings, screen, ship, aliens, bullets):
     # redesenha a tela a cada passada pelo laço
     screen.fill(aiSettings.bgColor)
     #redesenha todos os projeteis atras na nave e aliens
     for bullet in bullets.sprites():
         bullet.drawBullet()
     ship.blitme()
+    aliens.draw(screen)
+
     # deixa tela mais recente visivel
     pygame.display.flip()
 
@@ -53,3 +56,21 @@ def fireBullet(aiSettings,screen,ship,bullets):
         # cria um novo projetil e o adiciona ao grupo de projeteis
         newBullet = Bullet(aiSettings, screen, ship)
         bullets.add(newBullet)
+
+def createFeet(aiSettings, screen, aliens):
+    """cria frota completa de aliens"""
+    #cria um alien e calcula numero de aliens em uma linha
+    #o espacamento entre oas aliens é igual a largura de outro
+    alien= Alien(aiSettings, screen )
+    alienWidth = alien.rect.width
+    availablbeSpaceX = aiSettings.screenWidth - 2 * alienWidth
+    numberAliensX = int(availablbeSpaceX / (2 * alienWidth))
+
+    #Cria primeira linha de aliens
+    for alienNumber in range(numberAliensX):
+        #cria um alien e o posiciona na linha
+        alien = Alien(aiSettings, screen)
+        alien.x = alienWidth + 2 * alienWidth * alienNumber
+        alien.rect.x = alien.x
+        aliens.add(alien)
+
