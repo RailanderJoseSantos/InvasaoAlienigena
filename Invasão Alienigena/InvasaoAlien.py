@@ -10,7 +10,7 @@ def runGame():
     aiSettings = Settings()
     #setando display para tela
     screen = pg.display.set_mode((aiSettings.screenWidth,aiSettings.escreenHeidth))
-    pg.display.set_caption("Aniquila comunismo")
+    pg.display.set_caption("Invasão Alienígena")
     nave = Ship(screen, aiSettings)
 
     #cria um grupo onde serao armazenados os projeteis

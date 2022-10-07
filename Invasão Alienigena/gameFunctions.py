@@ -57,20 +57,27 @@ def fireBullet(aiSettings,screen,ship,bullets):
         newBullet = Bullet(aiSettings, screen, ship)
         bullets.add(newBullet)
 
+
+def getNumberAliensX(aiSettings, alienWidth):
+    """Determina nmr de aliens que cabem em 1 linha"""
+    availablbeSpaceX = aiSettings.screenWidth - 2 * alienWidth
+    numberAliensX = int(availablbeSpaceX / (2 * alienWidth))
+    return numberAliensX
+
+def createAlien(aiSettings, screen, aliens, alienNumber):
+    """Cria 1 alien e o posiciona na linha"""
+    alien = Alien(aiSettings, screen)
+    alienWidth = alien.rect.width
+    alien.x = alienWidth + 2 * alienWidth * alienNumber
+    alien.rect.x = alien.x
+    aliens.add(alien)
+
 def createFeet(aiSettings, screen, aliens):
     """cria frota completa de aliens"""
     #cria um alien e calcula numero de aliens em uma linha
     #o espacamento entre oas aliens é igual a largura de outro
     alien= Alien(aiSettings, screen )
-    alienWidth = alien.rect.width
-    availablbeSpaceX = aiSettings.screenWidth - 2 * alienWidth
-    numberAliensX = int(availablbeSpaceX / (2 * alienWidth))
-
+    numberAliensX = getNumberAliensX(aiSettings, alien.rect.width)
     #Cria primeira linha de aliens
     for alienNumber in range(numberAliensX):
-        #cria um alien e o posiciona na linha
-        alien = Alien(aiSettings, screen)
-        alien.x = alienWidth + 2 * alienWidth * alienNumber
-        alien.rect.x = alien.x
-        aliens.add(alien)
-
+        createAlien(aiSettings, screen, aliens, alienNumber)
