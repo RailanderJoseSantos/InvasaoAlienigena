@@ -90,3 +90,7 @@ def createFeet(aiSettings, screen, ship, aliens):
         #Cria linha de aliens
         for alienNumber in range(numberAliensX):
             createAlien(aiSettings, screen, aliens, alienNumber, rowNumber)
+
+def updateAliens(aliens):
+    """atualiza as posicoes de tds os aliens da frota"""
+    aliens.update()

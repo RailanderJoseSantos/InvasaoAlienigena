@@ -14,3 +14,6 @@ class Settings():
         self.bulletColor = (60,60,60)
         #num maximo projeteis
         self.bulletsAllowed = 3
+        #configs dos aliens
+        self.alienSpeedFactor = 1
+
