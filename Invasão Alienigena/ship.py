@@ -29,3 +29,6 @@ class Ship():
     def blitme(self):
         """Desenha a espaconave em sua posicao atual"""
         self.screen.blit(self.image, self.rect)
+    def centerShip(self):
+        """centraliza a nave na tela"""
+        self.center = self.screen_rect.centerx

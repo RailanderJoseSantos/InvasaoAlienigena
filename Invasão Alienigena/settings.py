@@ -5,10 +5,13 @@ class Settings():
         self.screenWidth = 900
         self.escreenHeidth = 600
         self.bgColor = (230,230,230)
-        self.speed = 1
+
+        #configurações da nave
+        self.shipSpeedFactor = 1.5
+        self.shipLimit = 3
 
         #Configurações dos projeteis
-        self.bulletSpeedFactor = 1
+        self.bulletSpeedFactor = 3
         self.bulletWidth = 3
         self.bulletHeight = 15
         self.bulletColor = (60,60,60)

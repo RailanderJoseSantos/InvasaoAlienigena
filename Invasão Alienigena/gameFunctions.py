@@ -1,7 +1,9 @@
 import sys
 import pygame
 from bullets import Bullet
-from alien   import Alien
+from alien import Alien
+from time import sleep
+
 def checkKeyDowmEvents(event, aiSettings, screen, ship, bullets):
     """Responde a pressionamento das teclas"""
     if event.key == pygame.K_RIGHT:
@@ -42,7 +44,7 @@ def updateScreen(aiSettings, screen, ship, aliens, bullets):
     # deixa tela mais recente visivel
     pygame.display.flip()
 
-def updateBullets(aliens, bullets):
+def updateBullets(aiSettings, screen, ship, aliens, bullets):
     """Atualiza a posicao dos projeteis e se livra dos antigos"""
     bullets.update()
     # tirando da memoria do pc os projeteis que ja foram disparados
@@ -52,6 +54,11 @@ def updateBullets(aliens, bullets):
     # verifica se algum projetil colidiu, se colidir livra se do projetil e alien
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
+    #destroi projeteis existentes e cria nova frota
+    if len(aliens) == 0:
+        bullets.empty()
+        createFeet (aiSettings, screen, ship, aliens)
+
 def fireBullet(aiSettings,screen,ship,bullets):
     # verifica se ja tem o limite de projeteis na tela
     if len(bullets) < aiSettings.bulletsAllowed:
@@ -59,7 +66,7 @@ def fireBullet(aiSettings,screen,ship,bullets):
         newBullet = Bullet(aiSettings, screen, ship)
         bullets.add(newBullet)
 
-def getNumberRows(aiSettings, shipHeight, alienHeight):
+def  getNumberRows(aiSettings, shipHeight, alienHeight):
     """Determinar o nmr de linhas com aliens que cabem na tela"""
     availableSpaceY = (aiSettings.escreenHeidth - (3 * alienHeight) - shipHeight)
     numberRow = int(availableSpaceY / (2 *alienHeight))
@@ -100,13 +107,30 @@ def checkFleetEges(aiSettings, aliens):
             changeFleetDirection(aiSettings, aliens)
             break
 
-def updateAliens(aiSettings, aliens):
-    """verufuca se a frota esta em uma das bordas e então atualiza as posicoes de tds os aliens da frota"""
+def updateAliens(aiSettings,stats, screen, ship, aliens, bullets):
+    """verifica se a frota esta em uma das bordas e então atualiza as posicoes de tds os aliens da frota"""
     checkFleetEges(aiSettings, aliens)
     aliens.update()
+    #verifica se houve colisão entre alien e nave
+    if pygame.sprite.spritecollideany(ship, aliens):
+        shipHit(aiSettings, stats, screen, ship, aliens, bullets)
+
 
 def  changeFleetDirection(aiSettings, aliens):
     """faz toda frota desces e muda direção"""
     for alien in aliens.sprites():
         alien.rect.y += aiSettings.fleetDropSpeed
     aiSettings.fleetDirection *= -1
+def shipHit(aiSettings,stats, screen, ship, aliens, bullets):
+    """Responde ao fato da nave ter sido atingida por um alien"""
+    #decrementa shipsLeft
+    stats.shipLeft -= 1
+    #esvazia lista de aliens e projeteis
+    aliens.empty()
+    bullets.empty()
+    #cria uma nova frota e centraliza a nave
+    createFeet(aiSettings,screen, ship, aliens)
+    ship.centerShip()
+
+    #faz uma pausa
+    sleep(0.5)
