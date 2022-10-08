@@ -91,6 +91,20 @@ def createFeet(aiSettings, screen, ship, aliens):
         for alienNumber in range(numberAliensX):
             createAlien(aiSettings, screen, aliens, alienNumber, rowNumber)
 
-def updateAliens(aliens):
-    """atualiza as posicoes de tds os aliens da frota"""
+def checkFleetEges(aiSettings, aliens):
+    """responde apropriadamente se algum alien alcançou borda"""
+    for alien in aliens.sprites():
+        if alien.checkEdges():
+            changeFleetDirection(aiSettings, aliens)
+            break
+
+def updateAliens(aiSettings, aliens):
+    """verufuca se a frota esta em uma das bordas e então atualiza as posicoes de tds os aliens da frota"""
+    checkFleetEges(aiSettings, aliens)
     aliens.update()
+
+def  changeFleetDirection(aiSettings, aliens):
+    """faz toda frota desces e muda direção"""
+    for alien in aliens.sprites():
+        alien.rect.y += aiSettings.fleetDropSpeed
+    aiSettings.fleetDirection *= -1

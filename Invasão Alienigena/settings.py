@@ -14,6 +14,12 @@ class Settings():
         self.bulletColor = (60,60,60)
         #num maximo projeteis
         self.bulletsAllowed = 3
+
         #configs dos aliens
         self.alienSpeedFactor = 1
+        self.fleetDropSpeed = 10
+
+        #fleetDirection = 1 representa direita, -1 a esquerda
+        self.fleetDirection = 1
+
 

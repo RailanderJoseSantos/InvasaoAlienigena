@@ -22,8 +22,17 @@ class Alien(Sprite):
     def blitme(self):
         """desenha o alien na posicao atual"""
         self.screen.blit(self.image, self.rect)
+    def checkEdges(self):
+        """retorna true se alien estivar na borda tela"""
+        screenRect = self.screen.get_rect()
+        #se lado direito do alien encostou lado direito da tela
+        if self.rect.right >= screenRect.right:
+            return True
+        #se alien encostou lado esquerdo da nave
+        elif self.rect.left <= 0:
+            return True
 
     def update(self):
-        """move o alien para direita"""
-        self.x += self.aiSettings.alienSpeedFactor
+        """move o alien para direita e esquerda"""
+        self.x += (self.aiSettings.alienSpeedFactor * self.aiSettings.fleetDirection)
         self.rect.x = self.x
