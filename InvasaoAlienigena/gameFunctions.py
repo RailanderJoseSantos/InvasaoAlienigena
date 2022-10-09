@@ -20,13 +20,21 @@ def checkKeyUpEvents(event, ship):
         ship.movingLeft = False
 
 
-def checkPlayButton(stats, playButton, mouseX, mouseY):
+def checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets, mouseX, mouseY):
     """inicia novo jogo qnd clicar no play"""
     if playButton.rect.collidepoint(mouseX,mouseY):
+        #reinicia dados do jogo
+        stats.resetStats()
         stats.gameActive = True
+        #limpa lista de alien e projeteis
+        aliens.empty()
+        bullets.empty()
+        #cria nova frota e centraliza nave
+        createFeet(aiSettings, screen, ship, aliens)
+        ship.centerShip()
 
 
-def checkEvents(aiSettings,screen, stats, playButton, ship, bullets):
+def checkEvents(aiSettings,screen, stats, playButton, ship, aliens, bullets):
     """ESCUTA EVENTOS DO TECLADO E MOUSE"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -39,7 +47,7 @@ def checkEvents(aiSettings,screen, stats, playButton, ship, bullets):
             checkKeyUpEvents(event, ship)
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouseX, mouseY = pygame.mouse.get_pos()
-            checkPlayButton(stats, playButton, mouseX, mouseY)
+            checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets, mouseX, mouseY)
 
 
 def updateScreen(aiSettings, screen, stats, ship, aliens, bullets, playButton):

@@ -373,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665336676810</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Ativando função no botão play">
+      <created>1665337577430</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1665337577430</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -410,6 +417,7 @@
     <MESSAGE value="identificando colisão nave e alien" />
     <MESSAGE value="allien colidindo com barra inferior tela, e a cada gameover diminuindo 1 vida" />
     <MESSAGE value="Inserindo o botão play na tela" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserindo o botão play na tela" />
+    <MESSAGE value="Ativando função no botão play" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ativando função no botão play" />
   </component>
 </project>
