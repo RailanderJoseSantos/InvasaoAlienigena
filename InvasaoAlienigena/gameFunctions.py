@@ -1,7 +1,8 @@
 import sys
 import pygame
 from bullets import Bullet
-from alien   import Alien
+from alien import Alien
+from time import  sleep
 def checkKeyDowmEvents(event, aiSettings, screen, ship, bullets):
     """Responde a pressionamento das teclas"""
     if event.key == pygame.K_RIGHT:
@@ -105,15 +106,30 @@ def checkFleetEges(aiSettings, aliens):
             changeFleetDirection(aiSettings, aliens)
             break
 
-def updateAliens(aiSettings, ship, aliens):
+def updateAliens(aiSettings, stats, screen, ship, aliens, bullets):
     """verufuca se a frota esta em uma das bordas e então atualiza as posicoes de tds os aliens da frota"""
     checkFleetEges(aiSettings, aliens)
     aliens.update()
     #verifica se houve colisao entre alien e nave
     if pygame.sprite.spritecollideany(ship, aliens):
-        print("Colidiu")
+        shipHit(aiSettings, stats, screen, ship, aliens, bullets)
 def  changeFleetDirection(aiSettings, aliens):
     """faz toda frota desces e muda direção"""
     for alien in aliens.sprites():
         alien.rect.y += aiSettings.fleetDropSpeed
     aiSettings.fleetDirection *= -1
+
+def shipHit(aiSettings, stats, screen, ship, aliens, bullets):
+    """responde a colisão nave e alien"""
+    #decrementa shipsLeft
+    stats.shipsLeft -= 1
+    #esvazia lista de aliens e projeteis
+    aliens.empty()
+    bullets.empty()
+
+    #cria nova frota e centraliza nave
+    createFeet(aiSettings, screen, ship, aliens)
+    ship.centerShip()
+
+    #faz uma pausa
+    sleep(0.5)

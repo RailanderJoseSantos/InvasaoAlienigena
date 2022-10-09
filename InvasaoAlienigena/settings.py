@@ -5,7 +5,10 @@ class Settings():
         self.screenWidth = 900
         self.escreenHeidth = 600
         self.bgColor = (230,230,230)
+
+        #configuracoes da espaconave
         self.speed = 1
+        self.shipLimit = 3
 
         #Configurações dos projeteis
         self.bulletSpeedFactor = 3

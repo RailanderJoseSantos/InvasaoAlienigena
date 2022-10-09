@@ -2,6 +2,7 @@ import pygame as pg
 from settings import Settings
 from ship import Ship
 from alien import Alien
+from gameStats import  GameStats
 import gameFunctions as gf
 from pygame.sprite import  Group
 def runGame():
@@ -11,6 +12,8 @@ def runGame():
     #setando display para tela
     screen = pg.display.set_mode((aiSettings.screenWidth,aiSettings.escreenHeidth))
     pg.display.set_caption("Invasão Alienígena")
+    #cria instancia para armazenar dados do game
+    stats = GameStats(aiSettings)
     nave = Ship(screen, aiSettings)
 
     #cria um grupo onde serao armazenados os projeteis
@@ -24,7 +27,7 @@ def runGame():
         gf.checkEvents(aiSettings, screen, nave, bullets)
         nave.update()
         gf.updateBullets(aiSettings, screen, nave , aliens, bullets)
-        gf.updateAliens(aiSettings,nave, aliens)
+        gf.updateAliens(aiSettings, stats, screen,nave, aliens, bullets)
         gf.updateScreen(aiSettings, screen, nave, aliens, bullets)
         #print(len(bullets))
 runGame()
