@@ -27,7 +27,7 @@ def runGame():
     gf.createFeet(aiSettings, screen, nave, aliens)
     #laço principal do jogo
     while True:
-        gf.checkEvents(aiSettings, screen, nave, bullets)
+        gf.checkEvents(aiSettings,screen, stats, playButton, nave, bullets)
         if stats.gameActive:
             nave.update()
             gf.updateBullets(aiSettings, screen, nave, aliens, bullets)
