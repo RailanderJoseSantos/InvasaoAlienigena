@@ -22,14 +22,17 @@ def checkKeyUpEvents(event, ship):
 
 def checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets, mouseX, mouseY):
     """inicia novo jogo qnd clicar no play"""
-    if playButton.rect.collidepoint(mouseX,mouseY):
-        #reinicia dados do jogo
+    buttonCliqueck = playButton.rect.collidepoint(mouseX, mouseY)
+    if buttonCliqueck and not stats.gameActive:
+        #oculta cursor mouse
+        pygame.mouse.set_visible(False)
+        # reinicia dados do jogo
         stats.resetStats()
         stats.gameActive = True
-        #limpa lista de alien e projeteis
+        # limpa lista de alien e projeteis
         aliens.empty()
         bullets.empty()
-        #cria nova frota e centraliza nave
+        # cria nova frota e centraliza nave
         createFeet(aiSettings, screen, ship, aliens)
         ship.centerShip()
 
@@ -160,6 +163,8 @@ def shipHit(aiSettings, stats, screen, ship, aliens, bullets):
         sleep(0.5)
     else:
         stats.gameActive = False
+        pygame.mouse.set_visible(True)
+
 def checkAliensBottom(aiSettings, stats, screen, ship, aliens, bullets):
     """verifica se alien tocou parte inferior de tela"""
     screenRect = screen.get_rect()
