@@ -113,6 +113,9 @@ def updateAliens(aiSettings, stats, screen, ship, aliens, bullets):
     #verifica se houve colisao entre alien e nave
     if pygame.sprite.spritecollideany(ship, aliens):
         shipHit(aiSettings, stats, screen, ship, aliens, bullets)
+    #verifica se algum alien atingiu inferior tela
+    checkAliensBottom(aiSettings, stats, screen, ship,aliens, bullets)
+
 def  changeFleetDirection(aiSettings, aliens):
     """faz toda frota desces e muda direção"""
     for alien in aliens.sprites():
@@ -121,15 +124,26 @@ def  changeFleetDirection(aiSettings, aliens):
 
 def shipHit(aiSettings, stats, screen, ship, aliens, bullets):
     """responde a colisão nave e alien"""
-    #decrementa shipsLeft
-    stats.shipsLeft -= 1
-    #esvazia lista de aliens e projeteis
-    aliens.empty()
-    bullets.empty()
+    if stats.shipsLeft > 0:
+        # decrementa shipsLeft
+        stats.shipsLeft -= 1
+        # esvazia lista de aliens e projeteis
+        aliens.empty()
+        bullets.empty()
 
-    #cria nova frota e centraliza nave
-    createFeet(aiSettings, screen, ship, aliens)
-    ship.centerShip()
+        # cria nova frota e centraliza nave
+        createFeet(aiSettings, screen, ship, aliens)
+        ship.centerShip()
 
-    #faz uma pausa
-    sleep(0.5)
+        # faz uma pausa
+        sleep(0.5)
+    else:
+        stats.gameActive = False
+def checkAliensBottom(aiSettings, stats, screen, ship, aliens, bullets):
+    """verifica se alien tocou parte inferior de tela"""
+    screenRect = screen.get_rect()
+    for alien in aliens.sprites():
+        if alien.rect.bottom >= screenRect.bottom:
+            #trata colisao
+            shipHit(aiSettings, stats, screen, ship, aliens, bullets)
+

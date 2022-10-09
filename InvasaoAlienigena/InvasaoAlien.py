@@ -25,9 +25,10 @@ def runGame():
     #laço principal do jogo
     while True:
         gf.checkEvents(aiSettings, screen, nave, bullets)
-        nave.update()
-        gf.updateBullets(aiSettings, screen, nave , aliens, bullets)
-        gf.updateAliens(aiSettings, stats, screen,nave, aliens, bullets)
+        if stats.gameActive:
+            nave.update()
+            gf.updateBullets(aiSettings, screen, nave, aliens, bullets)
+            gf.updateAliens(aiSettings, stats, screen, nave, aliens, bullets)
         gf.updateScreen(aiSettings, screen, nave, aliens, bullets)
         #print(len(bullets))
 runGame()
