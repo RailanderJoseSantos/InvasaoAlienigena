@@ -105,11 +105,13 @@ def checkFleetEges(aiSettings, aliens):
             changeFleetDirection(aiSettings, aliens)
             break
 
-def updateAliens(aiSettings, aliens):
+def updateAliens(aiSettings, ship, aliens):
     """verufuca se a frota esta em uma das bordas e então atualiza as posicoes de tds os aliens da frota"""
     checkFleetEges(aiSettings, aliens)
     aliens.update()
-
+    #verifica se houve colisao entre alien e nave
+    if pygame.sprite.spritecollideany(ship, aliens):
+        print("Colidiu")
 def  changeFleetDirection(aiSettings, aliens):
     """faz toda frota desces e muda direção"""
     for alien in aliens.sprites():

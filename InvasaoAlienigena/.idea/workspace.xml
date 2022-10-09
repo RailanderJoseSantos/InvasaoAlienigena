@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ab04073-1a2e-45d3-85ab-97e62ee1330f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/gameFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameFunctions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +329,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665316605843</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="repovoa os aliens apos vitoria">
+      <created>1665317048840</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1665317048840</updated>
+    </task>
+    <task id="LOCAL-00025" summary="repovoa os aliens apos vitoria">
+      <created>1665317067831</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1665317067831</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -363,6 +376,7 @@
     <MESSAGE value="inserindo mais linhas de naves (enquanto couber na tela, respeirando o espaço minimo)" />
     <MESSAGE value="dando movimento ao aliens" />
     <MESSAGE value="aliens movimentando para direita e esquerda, e ao bater na borda movimenta para baixo" />
-    <option name="LAST_COMMIT_MESSAGE" value="aliens movimentando para direita e esquerda, e ao bater na borda movimenta para baixo" />
+    <MESSAGE value="repovoa os aliens apos vitoria" />
+    <option name="LAST_COMMIT_MESSAGE" value="repovoa os aliens apos vitoria" />
   </component>
 </project>
