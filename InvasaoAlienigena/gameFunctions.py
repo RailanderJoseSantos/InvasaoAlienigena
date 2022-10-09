@@ -31,7 +31,7 @@ def checkEvents(aiSettings,screen, ship, bullets):
             checkKeyUpEvents(event, ship)
 
 
-def updateScreen(aiSettings, screen, ship, aliens, bullets):
+def updateScreen(aiSettings, screen, stats, ship, aliens, bullets, playButton):
     # redesenha a tela a cada passada pelo laço
     screen.fill(aiSettings.bgColor)
     #redesenha todos os projeteis atras na nave e aliens
@@ -39,6 +39,8 @@ def updateScreen(aiSettings, screen, ship, aliens, bullets):
         bullet.drawBullet()
     ship.blitme()
     aliens.draw(screen)
+    if not stats.gameActive:
+        playButton.drawButton()
 
     # deixa tela mais recente visivel
     pygame.display.flip()
