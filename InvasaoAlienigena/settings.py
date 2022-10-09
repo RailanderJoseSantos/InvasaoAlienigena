@@ -8,7 +8,7 @@ class Settings():
         self.speed = 1
 
         #Configurações dos projeteis
-        self.bulletSpeedFactor = 1
+        self.bulletSpeedFactor = 3
         self.bulletWidth = 3
         self.bulletHeight = 15
         self.bulletColor = (60,60,60)

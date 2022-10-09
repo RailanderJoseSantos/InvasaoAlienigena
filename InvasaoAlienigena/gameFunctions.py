@@ -42,7 +42,7 @@ def updateScreen(aiSettings, screen, ship, aliens, bullets):
     # deixa tela mais recente visivel
     pygame.display.flip()
 
-def updateBullets(aliens, bullets):
+def updateBullets(aiSettings, screen, ship, aliens, bullets):
     """Atualiza a posicao dos projeteis e se livra dos antigos"""
     bullets.update()
     # tirando da memoria do pc os projeteis que ja foram disparados
@@ -51,6 +51,11 @@ def updateBullets(aliens, bullets):
             bullets.remove(bullet)
     # verifica se algum projetil colidiu, se colidir livra se do projetil e alien
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    if len(aliens) == 0:
+        #destroi projeteis existente e cria nova frota
+        bullets.empty()
+        createFeet(aiSettings, screen, ship, aliens)
 
 def fireBullet(aiSettings,screen,ship,bullets):
     # verifica se ja tem o limite de projeteis na tela
