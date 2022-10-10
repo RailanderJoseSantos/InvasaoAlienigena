@@ -29,6 +29,7 @@ def checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets
         # reinicia dados do jogo
         stats.resetStats()
         stats.gameActive = True
+        aiSettings.initializeDynamicSettings()
         # limpa lista de alien e projeteis
         aliens.empty()
         bullets.empty()
@@ -80,6 +81,7 @@ def updateBullets(aiSettings, screen, ship, aliens, bullets):
     if len(aliens) == 0:
         #destroi projeteis existente e cria nova frota
         bullets.empty()
+        aiSettings.increaseSpeed()
         createFeet(aiSettings, screen, ship, aliens)
 
 def fireBullet(aiSettings,screen,ship,bullets):

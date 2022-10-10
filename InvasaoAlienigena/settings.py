@@ -7,11 +7,9 @@ class Settings():
         self.bgColor = (230,230,230)
 
         #configuracoes da espaconave
-        self.speed = 1
         self.shipLimit = 3
 
         #Configurações dos projeteis
-        self.bulletSpeedFactor = 3
         self.bulletWidth = 3
         self.bulletHeight = 15
         self.bulletColor = (60,60,60)
@@ -19,10 +17,25 @@ class Settings():
         self.bulletsAllowed = 3
 
         #configs dos aliens
-        self.alienSpeedFactor = 1
         self.fleetDropSpeed = 10
 
-        #fleetDirection = 1 representa direita, -1 a esquerda
+        #taxa com que a velocidade do game aumenta
+        self.speedupScale = 1.1
+
+        self.initializeDynamicSettings()
+
+    def initializeDynamicSettings(self):
+        """inicializa as confg que mudam no decorrer do jogo"""
+        self.shipSpeedFactor = 1.5
+        self.alienSpeedFactor = 1
+        self.speed = 1
+        self.bulletSpeedFactor = 3
+        # fleetDirection = 1 representa direita, -1 a esquerda
         self.fleetDirection = 1
 
-
+    def increaseSpeed(self):
+        """aumenta config de velocidade"""
+        self.shipSpeedFactor = (self.shipSpeedFactor * self.speedupScale)
+        self.speed = (self.speed * self.speedupScale)
+        self.bulletSpeedFactor = (self.bulletSpeedFactor * self.speedupScale)
+        self.alienSpeedFactor = (self.alienSpeedFactor * self.speedupScale)
