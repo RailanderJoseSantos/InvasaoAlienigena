@@ -54,7 +54,7 @@ def checkEvents(aiSettings,screen, stats, playButton, ship, aliens, bullets):
             checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets, mouseX, mouseY)
 
 
-def updateScreen(aiSettings, screen, stats, ship, aliens, bullets, playButton):
+def updateScreen(aiSettings, screen, stats, sb, ship, aliens, bullets, playButton):
     # redesenha a tela a cada passada pelo laço
     screen.fill(aiSettings.bgColor)
     #redesenha todos os projeteis atras na nave e aliens
@@ -62,6 +62,9 @@ def updateScreen(aiSettings, screen, stats, ship, aliens, bullets, playButton):
         bullet.drawBullet()
     ship.blitme()
     aliens.draw(screen)
+    #desenha pontuação sobre pontuação
+    sb.showScore()
+    #desenha botão play se jogo inativo
     if not stats.gameActive:
         playButton.drawButton()
 

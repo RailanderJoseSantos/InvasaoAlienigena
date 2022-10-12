@@ -8,3 +8,4 @@ class GameStats():
     def resetStats(self):
         """inicializa dados que podem mudar durante jogo"""
         self.shipsLeft = self.aiSettings.shipLimit
+        self.score = 0

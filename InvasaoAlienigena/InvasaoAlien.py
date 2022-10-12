@@ -6,6 +6,7 @@ from gameStats import  GameStats
 import gameFunctions as gf
 from pygame.sprite import  Group
 from button import Button
+from scoreboard import Scoreboard
 def runGame():
     "Inicializa o jogo e cria um objeto para tela"
     pg.init()
@@ -15,8 +16,9 @@ def runGame():
     pg.display.set_caption("Invasão Alienígena")
     #cria o botão play
     playButton = Button(aiSettings, screen, "Play")
-    #cria instancia para armazenar dados do game
+    #cria instancia para armazenar dados do game e cria painel  de pontuacao
     stats = GameStats(aiSettings)
+    sb = Scoreboard(aiSettings, screen, stats)
     nave = Ship(screen, aiSettings)
 
     #cria um grupo onde serao armazenados os projeteis
@@ -32,6 +34,6 @@ def runGame():
             nave.update()
             gf.updateBullets(aiSettings, screen, nave, aliens, bullets)
             gf.updateAliens(aiSettings, stats, screen, nave, aliens, bullets)
-        gf.updateScreen(aiSettings, screen, stats, nave, aliens, bullets, playButton)
+        gf.updateScreen(aiSettings, screen, stats, sb, nave, aliens, bullets, playButton)
         #print(len(bullets))
 runGame()
