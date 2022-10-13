@@ -22,6 +22,9 @@ class Settings():
         #taxa com que a velocidade do game aumenta
         self.speedupScale = 1.1
 
+        # a taxa com que os pontos para cada alien aumentam
+        self.scoreScale = 1.5
+
         self.initializeDynamicSettings()
 
     def initializeDynamicSettings(self):
@@ -41,3 +44,4 @@ class Settings():
         self.speed = (self.speed * self.speedupScale)
         self.bulletSpeedFactor = (self.bulletSpeedFactor * self.speedupScale)
         self.alienSpeedFactor = (self.alienSpeedFactor * self.speedupScale)
+        self.alienPoints = int(self.alienSpeedFactor  * self.scoreScale)

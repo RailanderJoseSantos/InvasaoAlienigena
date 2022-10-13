@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5ab04073-1a2e-45d3-85ab-97e62ee1330f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvasaoAlien.py" beforeDir="false" afterPath="$PROJECT_DIR$/InvasaoAlien.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameFunctions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameStats.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameStats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoreboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/scoreboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -410,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665538178130</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="painel de pontuação pontuando o padrão de pontos para cada alien atingido">
+      <created>1665701278098</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1665701278098</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -426,7 +434,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Tela basica" />
     <MESSAGE value="criando a nave do jogo" />
     <MESSAGE value="incluido a imagem da nave (estatica)" />
     <MESSAGE value="Colocando movimento a direita para a nave" />
@@ -451,6 +458,7 @@
     <MESSAGE value="Desativando funcionalidade do botão play (não so ocultando como antes) e desativando cursor , ambos enquanto o jogo tiver dado play" />
     <MESSAGE value="Fazendo com que o jogo aumente de nivel (multiplica velocidade atual de aliens em 1.1) a casa fase" />
     <MESSAGE value="criando mine painel pra exibir pontuação" />
-    <option name="LAST_COMMIT_MESSAGE" value="criando mine painel pra exibir pontuação" />
+    <MESSAGE value="painel de pontuação pontuando o padrão de pontos para cada alien atingido" />
+    <option name="LAST_COMMIT_MESSAGE" value="painel de pontuação pontuando o padrão de pontos para cada alien atingido" />
   </component>
 </project>

@@ -90,9 +90,10 @@ def checkBulletAlienCollision(aiSettings, screen,stats, sb, ship, aliens, bullet
         aiSettings.increaseSpeed()
         createFeet(aiSettings, screen, ship, aliens)
     if collisions:
-        for aliens in collisions:
-            stats.score+= aiSettings.alienPoints * len(aliens)
+        for aliens in collisions.values():
+            stats.score+= (aiSettings.alienPoints * len(aliens))
             sb.prepScore()
+        checkHighScore(stats, sb)
 
 
 def fireBullet(aiSettings,screen,ship,bullets):
@@ -186,3 +187,8 @@ def checkAliensBottom(aiSettings, stats, screen, ship, aliens, bullets):
             #trata colisao
             shipHit(aiSettings, stats, screen, ship, aliens, bullets)
 
+def checkHighScore(stats, sb):
+    """verifica se ha nova pontuação maxima"""
+    if stats.score > stats.highScore:
+        stats.highScore = stats.score
+        sb.prepHighScore()
