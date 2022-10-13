@@ -32,6 +32,8 @@ class Settings():
         self.bulletSpeedFactor = 3
         # fleetDirection = 1 representa direita, -1 a esquerda
         self.fleetDirection = 1
+        #pontuação
+        self.alienPoints = 50
 
     def increaseSpeed(self):
         """aumenta config de velocidade"""

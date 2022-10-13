@@ -32,7 +32,7 @@ def runGame():
         gf.checkEvents(aiSettings,screen, stats, playButton, nave, aliens, bullets)
         if stats.gameActive:
             nave.update()
-            gf.updateBullets(aiSettings, screen, nave, aliens, bullets)
+            gf.updateBullets(aiSettings, screen,stats, sb, nave, aliens, bullets)
             gf.updateAliens(aiSettings, stats, screen, nave, aliens, bullets)
         gf.updateScreen(aiSettings, screen, stats, sb, nave, aliens, bullets, playButton)
         #print(len(bullets))
