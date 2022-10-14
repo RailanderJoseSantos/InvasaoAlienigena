@@ -15,6 +15,7 @@ class Scoreboard():
         #prepara imagem das pontuaçoes inicial
         self.prepScore()
         self.prepHighScore()
+        self.prepLevel()
 
     def prepScore(self):
         """transforma a pontuação em uma img renderizada"""
@@ -30,9 +31,10 @@ class Scoreboard():
         self.scoreRect.top = 20
 
     def showScore(self):
-        """desenha a pontuação na tela"""
+        """desenha a pontuação e nivel na tela"""
         self.screen.blit(self.scoreImage, self.scoreRect)
         self.screen.blit(self.highScoreImage, self.highScoreRect)
+        self.screen.blit(self.levelImage, self.levelRect)
     def prepHighScore(self):
         """transforma pontuação maxima em imagem renderizada"""
         highScore = int(round(self.stats.highScore, -1))
@@ -42,3 +44,11 @@ class Scoreboard():
         self.highScoreRect = self.highScoreImage.get_rect()
         self.highScoreRect.centerx = self.screenRect.centerx
         self.highScoreRect.top = self.scoreRect.top
+    def prepLevel(self):
+        """trasnforma nivel em img renderizada"""
+        self.levelImage = self.font.render(str(self.stats.level),True, self.textColor, self.aiSettings.bgColor)
+
+        #oisiciona o nivel abaixo da pontuação
+        self.levelRect = self.levelImage.get_rect()
+        self.levelRect.right = self.scoreRect.right
+        self.levelRect.top = self.scoreRect.bottom + 10

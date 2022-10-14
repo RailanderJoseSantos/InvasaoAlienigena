@@ -20,7 +20,7 @@ def checkKeyUpEvents(event, ship):
         ship.movingLeft = False
 
 
-def checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets, mouseX, mouseY):
+def checkPlayButton(aiSettings, screen, stats, sb, playButton, ship, aliens, bullets, mouseX, mouseY):
     """inicia novo jogo qnd clicar no play"""
     buttonCliqueck = playButton.rect.collidepoint(mouseX, mouseY)
     if buttonCliqueck and not stats.gameActive:
@@ -30,6 +30,10 @@ def checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets
         stats.resetStats()
         stats.gameActive = True
         aiSettings.initializeDynamicSettings()
+        #reinicia as imags do painel de pontuacao
+        sb.prepScore()
+        sb.prepHighScore()
+        sb.prepLevel()
         # limpa lista de alien e projeteis
         aliens.empty()
         bullets.empty()
@@ -38,7 +42,7 @@ def checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets
         ship.centerShip()
 
 
-def checkEvents(aiSettings,screen, stats, playButton, ship, aliens, bullets):
+def checkEvents(aiSettings,screen, stats,sb,  playButton, ship, aliens, bullets):
     """ESCUTA EVENTOS DO TECLADO E MOUSE"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -51,7 +55,7 @@ def checkEvents(aiSettings,screen, stats, playButton, ship, aliens, bullets):
             checkKeyUpEvents(event, ship)
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouseX, mouseY = pygame.mouse.get_pos()
-            checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets, mouseX, mouseY)
+            checkPlayButton(aiSettings, screen, stats,sb, playButton, ship, aliens, bullets, mouseX, mouseY)
 
 
 def updateScreen(aiSettings, screen, stats, sb, ship, aliens, bullets, playButton):
@@ -85,9 +89,12 @@ def checkBulletAlienCollision(aiSettings, screen,stats, sb, ship, aliens, bullet
     "responde colisão de projeteis com alien"
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if len(aliens) == 0:
-        #destroi projeteis existente e cria nova frota
+        #se a frota toda for destruida inicia novo nivel
         bullets.empty()
         aiSettings.increaseSpeed()
+        #aumenta nivel
+        stats.level+=1
+        sb.prepLevel()
         createFeet(aiSettings, screen, ship, aliens)
     if collisions:
         for aliens in collisions.values():

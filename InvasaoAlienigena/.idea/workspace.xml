@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/gameFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameFunctions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameStats.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameStats.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scoreboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/scoreboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +27,14 @@
     </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/InvasaoAlien.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/button.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gameFunctions.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gameStats.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/scoreboard.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/settings.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -418,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665701278098</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Painel com pontuação recorde">
+      <created>1665705259272</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1665705259272</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -434,7 +448,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="criando a nave do jogo" />
     <MESSAGE value="incluido a imagem da nave (estatica)" />
     <MESSAGE value="Colocando movimento a direita para a nave" />
     <MESSAGE value="Usando metodo pra mudar velocidade da nave (permitir mudar velocidade no GUI)" />
@@ -459,6 +472,7 @@
     <MESSAGE value="Fazendo com que o jogo aumente de nivel (multiplica velocidade atual de aliens em 1.1) a casa fase" />
     <MESSAGE value="criando mine painel pra exibir pontuação" />
     <MESSAGE value="painel de pontuação pontuando o padrão de pontos para cada alien atingido" />
-    <option name="LAST_COMMIT_MESSAGE" value="painel de pontuação pontuando o padrão de pontos para cada alien atingido" />
+    <MESSAGE value="Painel com pontuação recorde" />
+    <option name="LAST_COMMIT_MESSAGE" value="Painel com pontuação recorde" />
   </component>
 </project>

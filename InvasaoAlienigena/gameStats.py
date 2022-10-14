@@ -11,3 +11,4 @@ class GameStats():
         """inicializa dados que podem mudar durante jogo"""
         self.shipsLeft = self.aiSettings.shipLimit
         self.score = 0
+        self.level = 1;
